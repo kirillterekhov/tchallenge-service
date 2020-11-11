@@ -19,13 +19,12 @@ Options for non-mandatory part(list is not exhaustive):
 * Use tls-secured communication between services
 * Use any logging/monitoring solution
 
-
 # T-Challenge: Service
 Rest service for T-Challenge clients.
 
 See this service on the whole T-Challenge scheme (named "Main service"):
+![the scheme](t-challenge-scheme.png)
 
-![the scheme](https://gitlab.com/t-systems-devops-school/coursework/tchallenge-service/-/raw/master/t-challenge-scheme.png)
 ## Database
 Application requires a MongoDB instance running.
 
