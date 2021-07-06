@@ -6,8 +6,8 @@ spring:
       database: ${TCHALLENGE_MONGODB_DATABASE:tchallenge}
       port: ${TCHALLENGE_MONGODB_PORT:27017}
       host: ${TCHALLENGE_MONGODB_HOST:localhost}
-      username: ${TCHALLENGE_MONGODB_USERNAME:user}
-      password: ${TCHALLENGE_MONGODB_PASSWORD:bzZbgg71}
+      username: ${TCHALLENGE_MONGODB_USERNAME:username}
+      password: ${TCHALLENGE_MONGODB_PASSWORD:password}
       authentication-database: ${TCHALLENGE_MONGODB_AUTHDB:admin}
   mail:
     host: ${TCHALLENGE_MAIL_SERVER:localhost}

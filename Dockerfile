@@ -1,0 +1,31 @@
+FROM gradle:5.5.1-jdk8
+
+# mandatory
+ENV TCHALLENGE_SERVICE_BACKEND_PORT='4567'
+ENV TCHALLENGE_SERVICE_PARTICIPANT_URL='http://localhost:4200'
+
+# database (also mandatory)
+ENV TCHALLENGE_MONGODB_HOST='localhost'
+ENV TCHALLENGE_MONGODB_PORT='27017'
+ENV TCHALLENGE_MONGODB_USERNAME='username'
+ENV TCHALLENGE_MONGODB_PASSWORD='password'
+ENV TCHALLENGE_MONGODB_DATABASE='tchallenge'
+
+# optional
+ENV TCHALLENGE_EXPERIMENTAL_FEATURES_ENABLED='true'
+ENV TCHALLENGE_MAIL_SERVER='localhost'
+ENV TCHALLENGE_MAIL_USERNAME='info@t-challenge.ru'
+ENV TCHALLENGE_SENDGRID_ENABLED='false'
+ENV TCHALLENGE_SENDGRID_APIKEY='your_api_key'
+ENV TCHALLENGE_PROXY_HOST='proxy'
+ENV TCHALLENGE_PROXY_PORT='3128'
+
+COPY . /usr/app/
+
+WORKDIR /usr/app/source
+
+RUN gradle --build-cache assemble
+
+WORKDIR /usr/app/source/build
+
+ENTRYPOINT exec java -jar libs/tchallenge-service.jar
